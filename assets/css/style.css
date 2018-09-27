@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    color: #660000
+}
+
+@font-face {
+    font-family: LetusPray-Regular;
+    src: url(assets/fonts/LetusPray-Regular.woff);
+
+}
