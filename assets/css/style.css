@@ -1,10 +1,16 @@
 body {
     background-color: black;
-    color: #660000
+    color: #660000;
+}
+
+.font {
+    font-family: LetusPray-Regular;
+    letter-spacing: 4px;
 }
 
 @font-face {
     font-family: LetusPray-Regular;
-    src: url(assets/fonts/LetusPray-Regular.woff);
+    src: url(https://raw.githubusercontent.com/kpsloan/Hangman/master/assets/fonts/WindshieldMassacre.woff);
 
 }
+
