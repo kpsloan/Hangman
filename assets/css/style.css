@@ -1,16 +1,25 @@
 body {
     background-color: black;
-    color: #660000;
+    color: #ff0000;
 }
 
 .font {
     font-family: LetusPray-Regular;
     letter-spacing: 4px;
+    padding-left: 40px;
+}
+
+#start {
+    text-align: center;
+}
+
+#wins {
+    padding-top: 100px;
 }
 
 @font-face {
     font-family: LetusPray-Regular;
-    src: url(https://raw.githubusercontent.com/kpsloan/Hangman/master/assets/fonts/LetusPray-Regular.woff);
+    src: url(https://raw.githubusercontent.com/kpsloan/Hangman/master/assets/fonts/OptimusPrinceps.woff);
 
 }
 
