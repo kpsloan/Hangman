@@ -106,7 +106,7 @@ window.onload = function () {
             
 
             guessed = [];
-            lives = 10;
+            lives = 6;
             counter = 0;
             space = 0;
             result();
