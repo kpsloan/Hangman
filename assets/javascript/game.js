@@ -103,7 +103,7 @@ window.onload = function () {
             word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
             word = word.replace(/\s/g, "-");
             console.log(word);
-            buttons();
+            
 
             guessed = [];
             lives = 10;
