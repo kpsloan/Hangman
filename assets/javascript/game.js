@@ -4,17 +4,18 @@ window.onload = function () {
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-    var lives;             
-    var counter;           
-    var space;              
+    var lives;
+    var counter;
+    var space;
     var score = 0;
-    var categories;         
-    var chosenCategory;     
-    var word;              
-    var guess;             
-    var guessed = [];      
+    var categories;
+    var chosenCategory;
+    var word;
+    var guess;
+    var guessed = [];
     var showLives = document.getElementById("lives");
     var showCatagory = document.getElementById("chosencategory");
+
 
 
     // Select Catagory
@@ -37,8 +38,8 @@ window.onload = function () {
             correct.setAttribute('id', 'my-word');
             guess = document.createElement('li');
             guess.setAttribute('class', 'guess');
-            if (word[i] === "-") {
-                guess.innerHTML = "-";
+            if (word[i] === " ") {
+                guess.innerHTML = " ";
                 space = 1;
             } else {
                 guess.innerHTML = "_";
@@ -49,6 +50,7 @@ window.onload = function () {
             correct.appendChild(guess);
         }
     }
+
 
     // Show lives
     comments = function () {
@@ -69,31 +71,9 @@ window.onload = function () {
     }
 
     // OnKey Function
-    check = function () {
-        list.onkeyup = function () {
-            var guess = (this.innerHTML);
-            this.setAttribute("class", "active");
-            this.onkeyup = null;
-            for (var i = 0; i < word.length; i++) {
-                if (word[i] === guess) {
-                    guessed[i].innerHTML = guess;
-                    counter += 1;
-                }
-            }
-            var j = (word.indexOf(guess));
-            if (j === -1) {
-                lives -= 1;
-                comments();
-            } else {
-                comments();
-            }
-        }
-    }
+   
 
 
-    document.onkeyup = function (event) {
-
-        var userGuess = event.key;
 
         //Play  
         play = function () {
@@ -120,14 +100,9 @@ window.onload = function () {
         }
 
         play();
+    
 
-        // document.getElementById('reset').onclick = function () {
-        //     correct.parentNode.removeChild(correct);
-        //    letters.parentNode.removeChild(letters);
-        // context.clearRect(0, 0, 400, 400);
-        //    play();
-        //  }
-    }
+    
 }
 
 

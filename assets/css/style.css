@@ -45,9 +45,20 @@ p {
     font-size: 30px;
 }
 
+#box {
+    text-align: center;
+    width: 30%;
+    margin: auto auto;
+}
+
 @font-face {
     font-family: LetusPray-Regular;
     src: url(https://raw.githubusercontent.com/kpsloan/Hangman/master/assets/fonts/OptimusPrinceps.woff);
 
+}
+
+li {
+    float: left;
+    display: block;
 }
 
