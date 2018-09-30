@@ -4,28 +4,27 @@ window.onload = function () {
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-    var categories;         // Array of topics
-    var chosenCategory;     // Selected catagory
-    var word;              // Selected word
-    var guess;             // Guess
-    var guessed = [];      // Stored guesses
-    var lives;             // Lives
-    var counter;           // Count correct guesses
-    var space;              // Number of spaces in word '-'
-
-    // Get elements
+    var lives;             
+    var counter;           
+    var space;              
+    var score = 0;
+    var categories;         
+    var chosenCategory;     
+    var word;              
+    var guess;             
+    var guessed = [];      
     var showLives = document.getElementById("lives");
-    var showCatagory = document.getElementById("topic");
+    var showCatagory = document.getElementById("chosencategory");
 
 
     // Select Catagory
     var selectCat = function () {
         if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = "Killers";
+            topic.innerHTML = "Killers";
         } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = "Film Titles";
+            topic.innerHTML = "Film Titles";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = "Monsters";
+            topic.innerHTML = "Monsters";
         }
     }
 
@@ -59,17 +58,22 @@ window.onload = function () {
         }
         for (var i = 0; i < guessed.length; i++) {
             if (counter + space === guessed.length) {
+                wins++;
                 showLives.innerHTML = "Lucky";
             }
         }
     }
 
-    // OnClick Function
+    wins = function () {
+        document.querySelector("#wins").innerHTML = "Escaped Death " + score;
+    }
+
+    // OnKey Function
     check = function () {
-        list.onclick = function () {
+        list.onkeyup = function () {
             var guess = (this.innerHTML);
             this.setAttribute("class", "active");
-            this.onclick = null;
+            this.onkeyup = null;
             for (var i = 0; i < word.length; i++) {
                 if (word[i] === guess) {
                     guessed[i].innerHTML = guess;
@@ -103,7 +107,7 @@ window.onload = function () {
             word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
             word = word.replace(/\s/g, "-");
             console.log(word);
-            
+
 
             guessed = [];
             lives = 6;
@@ -112,15 +116,21 @@ window.onload = function () {
             result();
             comments();
             selectCat();
+            wins();
         }
 
         play();
 
-        document.getElementById('reset').onclick = function () {
-            correct.parentNode.removeChild(correct);
-            letters.parentNode.removeChild(letters);
-           // context.clearRect(0, 0, 400, 400);
-            play();
-        }
+        // document.getElementById('reset').onclick = function () {
+        //     correct.parentNode.removeChild(correct);
+        //    letters.parentNode.removeChild(letters);
+        // context.clearRect(0, 0, 400, 400);
+        //    play();
+        //  }
     }
 }
+
+
+
+
+
