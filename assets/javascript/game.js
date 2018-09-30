@@ -45,7 +45,7 @@ window.onload = function () {
                 guess.innerHTML = "_";
             }
 
-            wins.push(guess);
+            guessed.push(guess);
             wordHolder.appendChild(correct);
             correct.appendChild(guess);
         }
@@ -57,8 +57,8 @@ window.onload = function () {
         if (lives < 1) {
             showLives.innerHTML = "You Died";
         }
-        for (var i = 0; i < wins.length; i++) {
-            if (counter + space === wins.length) {
+        for (var i = 0; i < guessed.length; i++) {
+            if (counter + space === guessed.length) {
                 showLives.innerHTML = "Lucky";
             }
         }
@@ -119,7 +119,7 @@ window.onload = function () {
         document.getElementById('reset').onclick = function () {
             correct.parentNode.removeChild(correct);
             letters.parentNode.removeChild(letters);
-            context.clearRect(0, 0, 400, 400);
+           // context.clearRect(0, 0, 400, 400);
             play();
         }
     }
