@@ -72,15 +72,17 @@ window.onload = function () {
     // OnKey Function
 
     window.onkeypress = function () {
-        var letter = event.key.toLowerCase();
-        if (letter === guess) {
-
-        } else (letter === guessed) {
-
+        if(event.keyCode>64 && event.keyCode<91){
+            var found=false;
+            var previouslyEntered=false;
+            var input=String.fromCharCode(event.keyCode).toLowerCase();
+                    
+            for(i=0;i<previousGuesses.length;i++){
+                if(input==previousGuesses[i]){
+                    previouslyEntered=true;
+                }
+            }
         }
-
-    }
-
     checkGuess = function (guess) {
         if (this.word.indexOf(guess) > -1) {
             // got one right
@@ -121,9 +123,11 @@ window.onload = function () {
 
     play();
 
+    }
+
 }
     
-}
+
 
 
 
