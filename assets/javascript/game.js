@@ -1,35 +1,33 @@
 window.onload = function () {
 
-    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
     var lives;
     var counter;
     var space;
     var score = 0;
     var categories;
-    var chosenCategory;
+    var selectedCategory;
     var word;
     var guess;
     var guessed = [];
     var showLives = document.getElementById("lives");
-    var showCatagory = document.getElementById("chosencategory");
+    var showCatagory = document.getElementById("selectedCategory");
 
 
 
-    // Select Catagory
+    // Select catagory
     var selectCat = function () {
-        if (chosenCategory === categories[0]) {
+        if (selectedCategory === categories[0]) {
             topic.innerHTML = "Killers";
-        } else if (chosenCategory === categories[1]) {
+        } else if (selectedCategory === categories[1]) {
             topic.innerHTML = "Film Titles";
-        } else if (chosenCategory === categories[2]) {
+        } else if (selectedCategory === categories[2]) {
             topic.innerHTML = "Monsters";
         }
     }
 
-    // Create guesses ul
+    // Create guesses list
     result = function () {
         wordHolder = document.getElementById('box');
         correct = document.createElement('ul');
@@ -43,6 +41,7 @@ window.onload = function () {
                 space = 1;
             } else {
                 guess.innerHTML = "_";
+                space = 1;
             }
 
             guessed.push(guess);
@@ -71,37 +70,58 @@ window.onload = function () {
     }
 
     // OnKey Function
-   
 
+    window.onkeypress = function () {
+        var letter = event.key.toLowerCase();
+        if (letter === guess) {
 
+        } else (letter === guessed) {
 
-        //Play  
-        play = function () {
-            categories = [
-                ["michael myers", "jason voorhees", "freddy krueger", "leatherface", "norman bates", "pinhead", "count dracula", "pennywise"],
-                ["alien", "halloween", "psycho", "nightmare on elm street", "texas chainsaw massacre", "hellraiser", "the thing", "jaws"],
-                ["xenomorph", "vampire", "zombie", "werewolf", "godzilla", "frankenstein", "gremlins", "cenobites"]
-            ];
-
-            chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-            word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-            word = word.replace(/\s/g, "-");
-            console.log(word);
-
-
-            guessed = [];
-            lives = 6;
-            counter = 0;
-            space = 0;
-            result();
-            comments();
-            selectCat();
-            wins();
         }
 
-        play();
-    
+    }
 
+    checkGuess = function (guess) {
+        if (this.word.indexOf(guess) > -1) {
+            // got one right
+            this.guess.push(guess);
+            return true;
+        } else {
+            //increment wrong counter
+            this.guessed++;
+            return false;
+        }
+    }
+
+
+
+    //Play  
+    play = function () {
+        categories = [
+            ["michael myers", "jason voorhees", "freddy krueger", "leatherface", "norman bates", "pinhead", "count dracula", "pennywise"],
+            ["alien", "halloween", "psycho", "nightmare on elm street", "texas chainsaw massacre", "hellraiser", "the thing", "jaws"],
+            ["xenomorph", "vampire", "zombie", "werewolf", "godzilla", "frankenstein", "gremlins", "cenobites"]
+        ];
+
+        selectedCategory = categories[Math.floor(Math.random() * categories.length)];
+        word = selectedCategory[Math.floor(Math.random() * selectedCategory.length)];
+        word = word.replace(/\s/g, "_");
+        console.log(word);
+
+
+        guessed = [];
+        lives = 6;
+        counter = 0;
+        space = 0;
+        result();
+        comments();
+        selectCat();
+        wins();
+    }
+
+    play();
+
+}
     
 }
 
